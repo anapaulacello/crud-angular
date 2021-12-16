@@ -23,9 +23,13 @@ export class ProductoService {
     return this.httpClient.delete(this.DELETE_PRODUCTO+id)
   }
 
-  /* updateProducto(id:string): Observable<any>{
-    return this.httpClient.put(this.UPDATE_PRODUCT+id)
-  } */
+  getProducto(id:string): Observable<any>{
+    return this.httpClient.get(this.BASE_URL+id)
+  }
+
+  updateProducto(id:string,producto:Producto): Observable<any>{
+    return this.httpClient.put(this.UPDATE_PRODUCTO+id,producto)
+  }
 
   createProducto(producto:Producto): Observable<any>{
     return this.httpClient.post(this.CREATE_PRODUCTO,producto)
